@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import TableContent from "./TableContent";
 import DatePicker from "react-datepicker";
+import AddOrderModal from "./AddOrderModal";
 
 function MainTable() {
   const [data, setData] = useState([]);
@@ -100,6 +101,7 @@ function MainTable() {
             />
           </div>
         </div>
+        <AddOrderModal />
       </div>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContent

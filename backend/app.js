@@ -7,6 +7,12 @@ const sequelize = new Sequelize({
   storage: "./db.sqlite",
 });
 
+const Price = Object.freeze({
+  Cake: 500,
+  Cookies: 50,
+  Muffins: 100,
+});
+
 const Orders = sequelize.define(
   "orders",
   {
@@ -213,6 +219,9 @@ app.get("/orders/distribution/item/all", async (_0, res) => {
 });
 
 app.post("/orders", async (req, res) => {
+  const newOrder = req.body;
+  newOrder.amount = Price[newOrder.item_type];
+  newOrder.last_updated_time = new Date().toISOString();
   const order = await Orders.create(req.body);
   res.json(order);
 });
