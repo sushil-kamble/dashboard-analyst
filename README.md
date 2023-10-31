@@ -1,4 +1,4 @@
-# dashboard-analyst
+# React Dashboard - using chart.js
 
 ## Instructions to Run the Project
 
